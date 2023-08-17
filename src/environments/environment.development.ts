@@ -1,10 +1,6 @@
 export const environment = {
-    firebaseConfig: {
-        apiKey: "AIzaSyDSwqBaOCIZtwcoo05K759h9u-7UKGsLlg",
-        authDomain: "ang-blog-10abd.firebaseapp.com",
-        projectId: "ang-blog-10abd",
-        storageBucket: "ang-blog-10abd.appspot.com",
-        messagingSenderId: "3270621912",
-        appId: "1:3270621912:web:03d5e53fcab5c55024f5ad"
-    }
+    GET_BLOGS : 'http://localhost:8081/posts',
+    POST_BLOG : 'http://localhost:8081/add',
+    GET_BLOGS_BY_ID : 'http://localhost:8081/posts/',
+    UPDATE_BLOG : 'http://localhost:8081/posts/update',
 };

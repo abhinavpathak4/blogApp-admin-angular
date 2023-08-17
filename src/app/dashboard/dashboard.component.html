@@ -1,17 +1,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <div class="container">
-    <div class="row"><div class="col-md-4 mb-5">
-        <div class="card shadow-effect">
-            <div class="card-body text-center bg-secondary-theme">
-                <h1 class="mt-3 text-theme-primary"><i class="fa-solid fa-clipboard-list"></i></h1>
-                <h2 class="text-theme-primary">Category</h2>
-                <p>Manage Your Category Details</p>
+    <div class="row">
+        <div class="col-md-4 mb-5">
+            <div class="card shadow-effect">
+                <div class="card-body text-center bg-secondary-theme">
+                    <h1 class="mt-3 text-theme-primary"><i class="fa-solid fa-clipboard-list"></i></h1>
+                    <h2 class="text-theme-primary">Category</h2>
+                    <p>Manage Your Category Details</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="container" *ngIf="blogList">
+    <ul class="table" *ngFor="let blog of blogList">
+        <li>{{blog.id}}</li>
+        <li>{{blog.title}}</li>
+        <li>{{blog.description}}</li>
+        <li>{{blog.category}}</li>
+
+        <li>
+            Comments:
+            <ul class="card mb-2"  *ngFor="let comment of blog.comments">
+                <li>{{comment.commentTitle}} - {{comment.commentDesc}}</li>
+                <li>Approved - <button (click)="toggleCommentStatus(comment,blog)" class="btn btn secondary"> {{comment.approved}}</button></li>
+            </ul>
+        </li>
+        
+        <li>Featured: <button class="btn btn-secondary" (click)="togglePostStatus(blog)" >{{blog.featured}}</button> </li>
+    </ul>
 </div>
 
-<div class="container">
-    
-</div>
+<button (click)="updateChanges()">Save Changes</button>
